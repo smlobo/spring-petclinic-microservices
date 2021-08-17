@@ -1,3 +1,27 @@
+# Notes on this Fork
+
+This fork of `spring-petclinic-microservices` has a modified `docker-compose-apm-collector.yml` file 
+which uses the APM Collector instead of a Zipkin Collector.
+
+## Usage instructions
+
+* Build all the jar files:
+```
+./mvnw clean install -P buildDocker
+```
+* Set your `apm-collector` docker image appropriately in `docker-compose-apm-collector.yml`
+* Set your AS `SERVER_URL` env var in `docker-compose-apm-collector.yml`
+* Start all services (including the `apm-collector`):
+```
+docker-compose -f docker-compose-apm-collector.yml up
+```
+
+* Run some traffic by going to http://localhost:8080
+* Stop all services:
+```
+docker-compose -f docker-compose-apm-collector.yml down
+```
+
 # Distributed version of the Spring PetClinic Sample Application built with Spring Cloud 
 
 [![Build Status](https://travis-ci.org/spring-petclinic/spring-petclinic-microservices.svg?branch=master)](https://travis-ci.org/spring-petclinic/spring-petclinic-microservices/) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
