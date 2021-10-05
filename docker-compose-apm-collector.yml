@@ -63,7 +63,7 @@ services:
      - 8080:8080
 
   tracing-server:
-    image: aternity/apm-collector:2021.8.0-13
+    image: aternity/apm-collector
     container_name: tracing-server
     mem_limit: 512M
     environment:
